@@ -5,14 +5,14 @@ CPU architectures often gain interesting new instructions as they
 evolve, but application developers often find it difficult to take
 advantage of those instructions. Reluctance to lose
 backward-compatibility is one of the main roadblocks slowing developers
-from using advancements in newer computing architectures. Function
-multi-versioning (FMV), which first appeared in GCC 4.8, is a way to
-have multiple implementations of a function, each using a different
-architecture's specialized instruction-set extensions. GCC 6 introduces
-changes to FMV that make it even easier to bring architecture-based
-optimizations to application code.
+from using advancements in newer computing architectures. 
+:abbr:`Function Multi-Versioning (FMV)`, which first appeared in GCC 4.8, 
+is a way to have multiple implementations of a function, each using a 
+different architecture's specialized instruction-set extensions. GCC 6 
+introduces changes to FMV that make it even easier to bring 
+architecture-based optimizations to application code.
 
-This tutorial show how to use FMV on a general code and on FFT library
+This tutorial show how to use FMV on general code and on `FFT library`_
 code. In the end the user will know how to use this technology on their
 code and used libraries to deploy architecture-based optimizations to
 application code.
@@ -20,8 +20,7 @@ application code.
 Install and configure a Clear Linux Host on bare metal
 ------------------------------------------------------
 
-First, follow our instructions to install `Clear Linux on bare
-metal <https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install/bare-metal-install.html#bare-metal-install>`__
+First, follow our instructions to install Clear Linux on `bare metal`_.
 
 Once the bare metal installation and initial configuration are complete,
 add the following bundle to your system:
@@ -92,8 +91,7 @@ candidate for vectorization:
 Generate the FMV patch
 ----------------------
 
-In order to generate the FMV patch with the project
-`make-fmv-patch <https://github.com/clearlinux/make-fmv-patch>`__ we
+In order to generate the FMV patch with the project `make-fmv-patch`_ we
 need to clone it and generate a log file with the loop vectorized
 information:
 
@@ -108,7 +106,7 @@ Then to generate the patch files we have to execute:
 
         perl ./make-fmv-patch/make-fmv-patch.pl log .
 
-The make-fmv-patch.pl take two arguments:
+The ``make-fmv-patch.pl`` script takes two arguments:
 
 ::
 
@@ -275,3 +273,12 @@ Congratulations! You have successfully installed an FMV development
 environment on Clear Linux. Furthermore, you use cutting edge compiler
 technology to improve the performance of your application based on IA
 technology and profiling of the specific execution of your application.
+
+
+
+.. _bare metal: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install/bare-metal-install.html#bare-metal-install
+.. _make-fmv-patch: https://github.com/clearlinux/make-fmv-patch
+.. _FFT library: https://software.intel.com/en-us/mkl/features/fft
+
+
+
